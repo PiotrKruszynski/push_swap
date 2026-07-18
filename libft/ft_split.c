@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_split.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kwlodars <kwlodars@student.42.fr>          +#+  +:+       +#+        */
+/*   By: pkruszyn <pkruszyn@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/25 11:54:07 by kwlodars          #+#    #+#             */
-/*   Updated: 2026/07/05 14:18:36 by kwlodars         ###   ########.fr       */
+/*   Updated: 2026/07/18 12:53:49 by pkruszyn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,23 +81,4 @@ char	**ft_split(char const *s, char c)
 	}
 	tab[j] = NULL;
 	return (tab);
-}
-
-int main(void)
-{
-    char **result;
-    int i;
-
-    result = ft_split("  hello  world 42  ", ' ');
-    if (!result)
-        return (1);
-    i = 0;
-    while (result[i] != NULL)
-    {
-        printf("word [%d]: %s\n", i, result[i]);
-        free(result[i]);
-        i++;
-    }
-    free(result);
-    return (0);
 }
