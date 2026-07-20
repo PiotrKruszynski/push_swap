@@ -8,15 +8,22 @@
 typedef struct s_node
 {
 	int				value;
+	int				index;
 	struct s_node	*next;
-	struct s_node	*head;
+	struct s_node	*prev;
 }	t_node;
+
+typedef struct s_stack
+{
+	t_node	*top;
+	t_node	*bottom;
+	int		size;
+}	t_stack;
 
 typedef struct s_ps
 {
-	t_node	*a; // wskaznik na gore stosu a
-	t_node	*b; // wskaznik na gore stosu b
-	
+	t_stack	*a;
+	t_stack	*b;
 }	t_ps;
 
 // parse.c
