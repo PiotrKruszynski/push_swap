@@ -8,48 +8,101 @@ t_node	*node_new(int value)
 	if (!node)
 		return (NULL);
 	node->value = value;
+	node->index = -1;
 	node->next = NULL;
+	node->prev = NULL;
 	return (node);
 }
 
-void	stackadd_back(t_node **stack, t_node *node)
+void	stack_init(t_stack *stack)
 {
-	t_node	*current;
-
-	if (!stack || !node)
+	stack->top = NULL;
+	stack->bottom = NULL;
+	stack->size = 0;
+}
+//dla dodawania na poczatek - pa+pb
+void	stack_add_front(t_stack *stack, t_node *new_node)
+{
+	if (!stack || !new_node)
 		return ;
-	if (*stack == NULL)
+	if (stack->size == 0)
 	{
-		*stack = node;
-		return ;
+		stack->top = new_node;
+		stack->bottom = new_node;
+		new_node->next = NULL;
+		new_node->prev = NULL;
 	}
-	current = *stack;
-	while (current->next)
-		current = current->next;
-	current->next = node;
+	else
+	{
+		new_node->next = stack->top;
+		new_node->prev = NULL;
+		stack->top->prev = new_node;
+		stack->top = new_node;
+	}
+	stack->size++;
 }
 
-void	stack_free(t_node **stack)
+void	stack_add_back(t_stack *stack, t_node *new_node)
 {
+	if (!stack || !new_node)
+		return ;
+	//bezpieczne zakończenie stack
+	new_node->next = NULL;
+	if (stack->size == 0)
+	{
+		stack->top = new_node;
+		stack->bottom = new_node;
+	}
+	else
+	{
+		new_node->prev = stack->bottom;
+		stack->bottom->next = new_node;
+		stack->bottom = new_node;
+	}
+	stack->size++;
+}
+// przekazywanie pomiedzy s.A i s.B
+t_node	*stack_pop(t_stack *stack)
+{
+	t_node	*popped_node;
+
+	if (!stack || stack->size == 0)
+		return (NULL);
+	popped_node = stack->top;
+	stack->top = stack->top->next;
+	if (stack->top)
+		stack->top->prev = NULL;
+	else
+		stack->bottom = NULL;
+	popped_node->next = NULL;
+	popped_node->prev = NULL;
+	stack->size--;
+	return (popped_node);
+}
+
+
+void	stack_free(t_stack *stack)
+{
+	t_node	*curr;
 	t_node	*next;
 
-	while (*stack)
+	if (!stack)
+		return ;
+	curr = stack->top;
+	while (curr != NULL)
 	{
-		next = (*stack)->next;
-		free(*stack);
-		*stack = next;
+		next = curr->next;
+		free(curr);
+		curr = next;
 	}
+	stack->top = NULL;
+	stack->bottom = NULL;
+	stack->size = 0;
 }
-
-int	stack_size(t_node *stack)
-{
-	int	size;
-
-	size = 0;
-	while (stack)
-	{
-		size++;
-		stack = stack->next;
-	}
-	return (size);
-}
+// --------------- w strukturze stack juz jest zmienna 'size'
+// int	stack_size(t_stack *stack)
+// {
+// 	if (!stack)
+// 		return (0);
+// 	return (stack->size);
+// }
