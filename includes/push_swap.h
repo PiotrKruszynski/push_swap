@@ -4,6 +4,7 @@
 # include <unistd.h>
 # include <stdlib.h>
 # include "libft.h"
+#include <limits.h>
 
 typedef struct s_node
 {
@@ -32,8 +33,14 @@ void	ps_error(t_ps *ps);
 
 // stack.c
 t_node	*node_new(int value);
-void	stackadd_back(t_node **stack, t_node *node);
-void	stack_free(t_node **stack);
-int		stack_size(t_node *stack);
+void	stack_init(t_stack *stack);
+void	stack_add_back(t_stack *stack, t_node *new_node);
+void	stack_free(t_stack *stack);
+int		stack_size(t_stack *stack);
+
+// ops_rotate.c
+void    ra(t_ps *ps);
+void    rb(t_ps *ps);
+void    rr(t_ps *ps);
 
 #endif

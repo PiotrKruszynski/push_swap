@@ -1,38 +1,32 @@
 #include "push_swap.h"
 
-static void	debug_print(t_node *stack)
+static void	debug_print(t_stack *stack)
 {
-	while (stack)
+	t_node	*curr;
+
+	curr = stack->top;
+	while (curr != NULL)
 	{
-		ft_putnbr_fd(stack->value, 1);
+		ft_putnbr_fd(curr->value, 1);
 		write(1, "\n", 1);
-		stack = stack->next;
+		curr = curr->next;
 	}
 }
 
 int	main(int argc, char **argv)
 {
-	t_ps	ps; // dostaje dwa wskazniki ze smieciami
+	t_ps	ps;
 
 	if (argc < 2)
 		return (0);
+	stack_init(&ps.a);
+	stack_init(&ps.b);
 	parse_args(&ps, argc, argv);
-	debug_print(ps.a);
+	debug_print(&ps.a);
+	ra(&ps);
+	debug_print(&ps.a);
 	stack_free(&ps.a);
 	stack_free(&ps.b);
 	return (0);
-
-/*
-	i = 1;
-	strategy = ADAPTIVE;
-	bench = false;
-
-	while (argv[i] == "--")
-		rozpoznaje flage 
-		ustawiam strategy
-		ustawiam bench
-		nieznana flaga - error 
-		i++;
-*/
 }
 
