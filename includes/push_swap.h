@@ -22,8 +22,8 @@ typedef struct s_stack
 
 typedef struct s_ps
 {
-	t_stack	*a;
-	t_stack	*b;
+	t_stack	a;
+	t_stack	b;
 }	t_ps;
 
 // parse.c
