@@ -6,6 +6,14 @@
 # include "libft.h"
 #include <limits.h>
 
+typedef enum e_strategy
+{
+	SIMPLE,
+	MEDIUM,
+	COMPLEX,
+	ADAPTIVE
+}	t_strategy;
+
 typedef struct s_node
 {
 	int				value;
@@ -23,8 +31,9 @@ typedef struct s_stack
 
 typedef struct s_ps
 {
-	t_stack	a;
-	t_stack	b;
+	t_stack			a;
+	t_stack			b;
+	t_strategy		strategy;
 }	t_ps;
 
 // parse.c

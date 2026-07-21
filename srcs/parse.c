@@ -64,7 +64,7 @@ int	ft_atoi_overflow(char *str, long long *result)
 	{
 		num = num * 10 + (str[i] - '0');
 		if ((sign == 1 && num > 2147483647)
-			|| (sign == -1 && (-num) < -2147483648))
+			|| (sign == -1 && (-num) < -2147483648)) // || (sign == -1 && num > 2147483648))
 			return (0);
 		i++;
 	}
@@ -73,15 +73,32 @@ int	ft_atoi_overflow(char *str, long long *result)
 }
 // dodac obsluge formatu "1 2 3"
 
+static void	set_flag(t_ps *ps, char *arg)
+{
+	if (!ft_strncmp(arg, "--simple", 9))
+		ps->strategy = SIMPLE;
+	else if (!ft_strncmp(arg, "--medium", 9))
+		ps->strategy = MEDIUM;
+	else if (!ft_strncmp(arg, "--complex", 10))
+		ps->strategy = COMPLEX;
+	else if (!ft_strncmp(arg, "--adaptive", 11))
+		ps->strategy = ADAPTIVE;
+	else
+		ps_error(ps);
+}
+
 void	parse_args(t_ps *ps, int argc, char **argv)
 {
 	int			i;
 	long long	value;
 	t_node		*node;
 
-	stack_init(&ps->a);
-	stack_init(&ps->b);
 	i = 1;
+	while (i < argc && argv[i][0] == '-' && argv[i][1] == '-')
+	{
+		set_flag(ps, argv[i]);
+		i++;
+	}
 	while (i < argc)
 	{
 		if (!is_number(argv[i]))
