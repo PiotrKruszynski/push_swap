@@ -28,19 +28,36 @@ typedef struct s_ps
 }	t_ps;
 
 // parse.c
-void	parse_args(t_ps *ps, int argc, char **argv);
 void	ps_error(t_ps *ps);
+int		is_number(char *str);
+int		duplicate(t_stack *stack, int value);
+int		ft_atoi_overflow(char *str, long long *result);
+void	parse_args(t_ps *ps, int argc, char **argv);
 
-// stack.c
+
+//stack.c
+
+/* --- jedna *, bo t_stack nie zmienia adresu w pamięci 
+--w libft przekazywalismy adres wezla(node) = ** bo wskaznik na node byl modyfikowany
+--tutaj t_stack to opakowanie dla t_node, sam t_stack sie nie zmienia(jedynie node 'wewnatrz' niego)*/
+
 t_node	*node_new(int value);
 void	stack_init(t_stack *stack);
 void	stack_add_back(t_stack *stack, t_node *new_node);
+void	stack_add_front(t_stack *stack, t_node *new_node);
+t_node	*stack_pop(t_stack *stack);
 void	stack_free(t_stack *stack);
-int		stack_size(t_stack *stack);
 
-// ops_rotate.c
-void    ra(t_ps *ps);
-void    rb(t_ps *ps);
-void    rr(t_ps *ps);
-
+//ops_push_swap
+void	sa(t_ps *ps);
+void	sb(t_ps *ps);
+void	ss(t_ps *ps);
+void	pa(t_ps *ps);
+void	pb(t_ps *ps);
+void	ra(t_ps *ps);
+void	rb(t_ps *ps);
+void	rr(t_ps *ps);
+void	rra(t_ps *ps);
+void	rrb(t_ps *ps);
+void	rrr(t_ps *ps);
 #endif
