@@ -23,7 +23,8 @@ int	main(int argc, char **argv)
 	stack_init(&ps.b);
 	parse_args(&ps, argc, argv);
 	debug_print(&ps.a);
-	ra(&ps);
+	if (!is_sorted(&ps.a))
+		ra(&ps);
 	debug_print(&ps.a);
 	stack_free(&ps.a);
 	stack_free(&ps.b);

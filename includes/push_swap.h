@@ -59,4 +59,6 @@ void	rr(t_ps *ps);
 void	rra(t_ps *ps);
 void	rrb(t_ps *ps);
 void	rrr(t_ps *ps);
+// utils.c
+int		is_sorted(t_stack *stack);
 #endif
