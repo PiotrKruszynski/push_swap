@@ -13,9 +13,11 @@ int	is_number(char *str)
 	int	i;
 
 	i = 0;
+	if (!str || str[i] == '\0')
+		return (0);
 	if (str[i] == '-' || str[i] == '+')
 		i++;
-	if (!str[i])
+	if (str[i] == '\0')
 		return (0);
 	while (str[i])
 	{
@@ -25,49 +27,6 @@ int	is_number(char *str)
 	}
 	return (1);
 }
-// 	v2
-// int	is_number(char *str)
-// {
-// 	int	i;
-
-// 	i = 0;
-// 	if (!str || str[0] == '\0')
-// 		return (0);
-// 	while (str[i] == ' ' || (str[i] >= 9 && str[i] <= 13))
-// 		i++;
-// 	if (str[i] == '-' || str[i] == '+')
-// 		i++;
-// 	if (str[i] == '\0')
-// 		return (0);
-// 	while (str[i])
-// 	{
-// 		if (str[i] < '0' || str[i] > '9')
-// 			return (0);
-// 		i++;
-// 	}
-// 	return (1);
-// }
-
-//	v3 ---------- poprawna?
-// int	is_number(char *str)
-// {
-// 	int	i;
-
-// 	i = 0;
-// 	if (!str || str[i] == '\0')
-// 		return (0);
-// 	if (str[i] == '-' || str[i] == '+')
-// 		i++;
-// 	if (str[i] == '\0')
-// 		return (0);
-// 	while (str[i])
-// 	{
-// 		if (str[i] < '0' || str[i] > '9')
-// 			return (0);
-// 		i++;
-// 	}
-// 	return (1);
-// }
 
 
 int	duplicate(t_stack *stack, int value)
@@ -104,7 +63,8 @@ int	ft_atoi_overflow(char *str, long long *result)
 	while (str[i] >= '0' && str[i] <= '9')
 	{
 		num = num * 10 + (str[i] - '0');
-		if ((sign == 1 && num > 2147483647) || (sign == -1 && (-num) < -2147483648))
+		if ((sign == 1 && num > 2147483647)
+			|| (sign == -1 && (-num) < -2147483648))
 			return (0);
 		i++;
 	}
@@ -112,6 +72,7 @@ int	ft_atoi_overflow(char *str, long long *result)
 	return (1);
 }
 // dodac obsluge formatu "1 2 3"
+
 void	parse_args(t_ps *ps, int argc, char **argv)
 {
 	int			i;
