@@ -36,11 +36,6 @@ void	parse_args(t_ps *ps, int argc, char **argv);
 
 
 //stack.c
-
-/* --- jedna *, bo t_stack nie zmienia adresu w pamięci 
---w libft przekazywalismy adres wezla(node) = ** bo wskaznik na node byl modyfikowany
---tutaj t_stack to opakowanie dla t_node, sam t_stack sie nie zmienia(jedynie node 'wewnatrz' niego)*/
-
 t_node	*node_new(int value);
 void	stack_init(t_stack *stack);
 void	stack_add_back(t_stack *stack, t_node *new_node);
@@ -49,14 +44,18 @@ t_node	*stack_pop(t_stack *stack);
 void	stack_free(t_stack *stack);
 
 //ops_push_swap
+void	swap(t_stack *dest, t_stack *src);
 void	sa(t_ps *ps);
 void	sb(t_ps *ps);
 void	ss(t_ps *ps);
+void	push(t_stack *dest, t_stack *src);
 void	pa(t_ps *ps);
 void	pb(t_ps *ps);
+void	rotate(t_stack *stack);
 void	ra(t_ps *ps);
 void	rb(t_ps *ps);
 void	rr(t_ps *ps);
+void	reverse_rotate(t_stack *stack);
 void	rra(t_ps *ps);
 void	rrb(t_ps *ps);
 void	rrr(t_ps *ps);
