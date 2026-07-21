@@ -44,18 +44,18 @@ t_node	*stack_pop(t_stack *stack);
 void	stack_free(t_stack *stack);
 
 //ops_push_swap
-void	swap(t_stack *dest, t_stack *src);
+
 void	sa(t_ps *ps);
 void	sb(t_ps *ps);
 void	ss(t_ps *ps);
-void	push(t_stack *dest, t_stack *src);
+
 void	pa(t_ps *ps);
 void	pb(t_ps *ps);
-void	rotate(t_stack *stack);
+
 void	ra(t_ps *ps);
 void	rb(t_ps *ps);
 void	rr(t_ps *ps);
-void	reverse_rotate(t_stack *stack);
+
 void	rra(t_ps *ps);
 void	rrb(t_ps *ps);
 void	rrr(t_ps *ps);
