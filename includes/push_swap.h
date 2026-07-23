@@ -34,6 +34,7 @@ typedef struct s_ps
 	t_stack			a;
 	t_stack			b;
 	t_strategy		strategy;
+	double			disorder;
 }	t_ps;
 
 // parse.c
@@ -42,7 +43,6 @@ int		is_number(char *str);
 int		duplicate(t_stack *stack, int value);
 int		ft_atoi_overflow(char *str, long long *result);
 void	parse_args(t_ps *ps, int argc, char **argv);
-
 
 //stack.c
 t_node	*node_new(int value);
@@ -73,4 +73,10 @@ int		is_sorted(t_stack *stack);
 
 // sort_*.c
 void	sort_simple(t_ps *ps);
+void	sort_medium(t_ps *ps);
+void	sort_complex(t_ps *ps);
+void	sort_adaptive(t_ps *ps);
+
+// bench.c
+double  compute_disorder(t_stack *stack);
 #endif
