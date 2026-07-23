@@ -52,7 +52,7 @@ void	stack_add_front(t_stack *stack, t_node *new_node);
 t_node	*stack_pop(t_stack *stack);
 void	stack_free(t_stack *stack);
 
-//ops_push_swap
+//ops_*.c
 
 void	sa(t_ps *ps);
 void	sb(t_ps *ps);
@@ -70,4 +70,7 @@ void	rrb(t_ps *ps);
 void	rrr(t_ps *ps);
 // utils.c
 int		is_sorted(t_stack *stack);
+
+// sort_*.c
+void	sort_simple(t_ps *ps);
 #endif

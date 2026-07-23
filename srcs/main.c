@@ -1,5 +1,5 @@
 #include "push_swap.h"
-
+/*
 static void	debug_print(t_stack *stack)
 {
 	t_node	*curr;
@@ -11,7 +11,7 @@ static void	debug_print(t_stack *stack)
 		write(1, "\n", 1);
 		curr = curr->next;
 	}
-}
+} */
 
 static void	init_ps(t_ps *ps)
 {
@@ -20,7 +20,7 @@ static void	init_ps(t_ps *ps)
 	ps->strategy = ADAPTIVE;
 }
 
-// run_strategy if ps->strategy == SIMPLE sort_simple(ps)
+// void run_strategy  -> if ps->strategy == SIMPLE sort_simple(ps) itd.
 
 int	main(int argc, char **argv)
 {
@@ -30,12 +30,11 @@ int	main(int argc, char **argv)
 		return (0);
 	init_ps(&ps);
 	parse_args(&ps, argc, argv);
-	debug_print(&ps.a);
+	// debug_print(&ps.a);
 	if (!is_sorted(&ps.a))
-		ra(&ps);
-	debug_print(&ps.a);
+		sort_simple(&ps);
+	// debug_print(&ps.a);
 	stack_free(&ps.a);
 	stack_free(&ps.b);
 	return (0);
 }
-
