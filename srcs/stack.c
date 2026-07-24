@@ -80,7 +80,6 @@ t_node	*stack_pop(t_stack *stack)
 	return (popped_node);
 }
 
-
 void	stack_free(t_stack *stack)
 {
 	t_node	*curr;

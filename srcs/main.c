@@ -1,5 +1,5 @@
 #include "push_swap.h"
-
+/*
 static void	debug_print(t_stack *stack)
 {
 	t_node	*curr;
@@ -11,6 +11,26 @@ static void	debug_print(t_stack *stack)
 		write(1, "\n", 1);
 		curr = curr->next;
 	}
+} */
+
+static void	init_ps(t_ps *ps)
+{
+	stack_init(&ps->a);
+	stack_init(&ps->b);
+	ps->strategy = ADAPTIVE;
+	ps->disorder = 0.0;
+}
+
+void	run_strategy(t_ps *ps)
+{
+	if (ps->strategy == SIMPLE)
+		sort_simple(ps);
+	else if (ps->strategy == MEDIUM)
+		sort_medium(ps);
+	else if (ps->strategy == COMPLEX)
+		sort_complex(ps);
+	else
+		sort_adaptive(ps);
 }
 
 int	main(int argc, char **argv)
@@ -19,14 +39,16 @@ int	main(int argc, char **argv)
 
 	if (argc < 2)
 		return (0);
-	stack_init(&ps.a);
-	stack_init(&ps.b);
+	init_ps(&ps);
 	parse_args(&ps, argc, argv);
-	debug_print(&ps.a);
-	ra(&ps);
-	debug_print(&ps.a);
+	ps.disorder = compute_disorder(&ps.a);
+	// debug_print(&ps.a);
+	if (!is_sorted(&ps.a))
+		run_strategy(&ps);
+	// debug_print(&ps.a);
+	// ft_putnbr_fd(compute_disorder(&ps.a), 1);
+	// write(1, "\n", 1);
 	stack_free(&ps.a);
 	stack_free(&ps.b);
 	return (0);
 }
-

@@ -6,6 +6,14 @@
 # include "libft.h"
 #include <limits.h>
 
+typedef enum e_strategy
+{
+	SIMPLE,
+	MEDIUM,
+	COMPLEX,
+	ADAPTIVE
+}	t_strategy;
+
 typedef struct s_node
 {
 	int				value;
@@ -23,8 +31,10 @@ typedef struct s_stack
 
 typedef struct s_ps
 {
-	t_stack	a;
-	t_stack	b;
+	t_stack			a;
+	t_stack			b;
+	t_strategy		strategy;
+	double			disorder;
 }	t_ps;
 
 // parse.c
@@ -34,7 +44,6 @@ int		duplicate(t_stack *stack, int value);
 int		ft_atoi_overflow(char *str, long long *result);
 void	parse_args(t_ps *ps, int argc, char **argv);
 
-
 //stack.c
 t_node	*node_new(int value);
 void	stack_init(t_stack *stack);
@@ -43,7 +52,7 @@ void	stack_add_front(t_stack *stack, t_node *new_node);
 t_node	*stack_pop(t_stack *stack);
 void	stack_free(t_stack *stack);
 
-//ops_push_swap
+//ops_*.c
 
 void	sa(t_ps *ps);
 void	sb(t_ps *ps);
@@ -59,4 +68,15 @@ void	rr(t_ps *ps);
 void	rra(t_ps *ps);
 void	rrb(t_ps *ps);
 void	rrr(t_ps *ps);
+// utils.c
+int		is_sorted(t_stack *stack);
+
+// sort_*.c
+void	sort_simple(t_ps *ps);
+void	sort_medium(t_ps *ps);
+void	sort_complex(t_ps *ps);
+void	sort_adaptive(t_ps *ps);
+
+// bench.c
+double  compute_disorder(t_stack *stack);
 #endif
