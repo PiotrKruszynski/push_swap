@@ -1,10 +1,10 @@
-#ifndef PUSH_SWAP_H
+# ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
 
 # include <unistd.h>
 # include <stdlib.h>
 # include "libft.h"
-#include <limits.h>
+# include <limits.h>
 
 typedef enum e_strategy
 {
@@ -13,6 +13,15 @@ typedef enum e_strategy
 	COMPLEX,
 	ADAPTIVE
 }	t_strategy;
+
+typedef enum e_op_count //dla liczenia kazdej operacji
+{
+	O_SA, O_SB, O_SS,
+	O_PA, O_PB,
+	O_RA, O_RB, O_RR,
+	O_RRA, O_RRB, O_RRR,
+	OP_COUNT
+}	t_op_count;
 
 typedef struct s_node
 {
@@ -35,6 +44,9 @@ typedef struct s_ps
 	t_stack			b;
 	t_strategy		strategy;
 	double			disorder;
+	int				bench_mode;
+	int				total_ops;
+	int				op_counter[OP_COUNT];
 }	t_ps;
 
 // parse.c

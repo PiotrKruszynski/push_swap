@@ -14,16 +14,30 @@ static void	reverse_rotate(t_stack *stack)
 	stack->top->prev = last;
 	stack->top = last;
 }
+// static void	reverse_rotate(t_stack *stack)
+// {
+// 	t_node	*last;
+
+// 	if (!stack || stack->size < 2)
+// 		return ;
+// 	last = stack_pop_back(stack);
+// 	if (last)
+// 		stack_add_front(stack, last);
+// }
 
 void	rra(t_ps *ps)
 {
 	reverse_rotate(&(ps->a));
+	ps->total_ops++;
+	ps->op_counter[O_RRA]++;
 	write(1, "rra\n", 4);
 }
 
 void	rrb(t_ps *ps)
 {
 	reverse_rotate(&(ps->b));
+	ps->total_ops++;
+	ps->op_counter[O_RRB]++;
 	write(1, "rrb\n", 4);
 }
 
@@ -31,6 +45,8 @@ void	rrr(t_ps *ps)
 {
 	reverse_rotate(&(ps->a));
 	reverse_rotate(&(ps->b));
+	ps->total_ops++;
+	ps->op_counter[O_RRR]++;
 	write(1, "rrr\n", 4);
 }
 
