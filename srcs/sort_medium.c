@@ -1,6 +1,6 @@
 #include "push_swap.h"
 
-int	get_chunk_size(int size)
+static int	get_chunk_size(int size)
 {
 	if (size <= 20)
 		return (size / 2);
@@ -35,6 +35,22 @@ static void	rotate_b_to_top(t_ps *ps, int pos)
 		}
 	}
 }
+static int	find_pos_b(t_stack *stack, int target_index)
+{
+	t_node	*current;
+	int		pos;
+
+	pos = 0;
+	current = stack->top;
+	while (current)
+	{
+		if (current->index == target_index)
+			return (pos);
+		pos++;
+		current = current->next;
+	}
+	return (-1);
+}
 
 static void	cheap_push_back(t_ps *ps, int pos_max, int pos_next)
 {
@@ -58,7 +74,7 @@ static void	cheap_push_back(t_ps *ps, int pos_max, int pos_next)
 	}
 }
 
-void	push_back_to_a(t_ps *ps)
+static void	push_back_to_a(t_ps *ps)
 {
 	int	pos_max;
 	int	pos_next;
@@ -70,11 +86,11 @@ void	push_back_to_a(t_ps *ps)
 			pos_next = find_pos_b(&(ps->b), ps->b.size - 2);
 		else
 			pos_next = -1;
-		smart_push_back(ps, pos_max, pos_next);
+		cheap_push_back(ps, pos_max, pos_next);
 	}
 }
 
-void	push_to_b(t_ps *ps, int *counter, int chunk_size)
+static void	push_to_b(t_ps *ps, int *counter, int chunk_size)
 {
 	while (ps->a.size > 0)
 	{
@@ -94,7 +110,7 @@ void	push_to_b(t_ps *ps, int *counter, int chunk_size)
 	}
 }
 
-void	divide_chunks(t_ps *ps)
+static void	divide_chunks(t_ps *ps)
 {
 	int	counter;
 	int	calculated_chunk;
@@ -103,23 +119,6 @@ void	divide_chunks(t_ps *ps)
 	calculated_chunk = get_chunk_size(ps->a.size);
 	push_to_b(ps, &counter, calculated_chunk);
 	push_back_to_a(ps);
-}
-
-int	find_pos_b(t_stack *stack, int target_index)
-{
-	t_node	*current;
-	int		pos;
-
-	pos = 0;
-	current = stack->top;
-	while (current)
-	{
-		if (current->index == target_index)
-			return (pos);
-		pos++;
-		current = current->next;
-	}
-	return (-1);
 }
 
 void	sort_medium(t_ps *ps)
