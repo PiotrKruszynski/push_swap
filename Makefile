@@ -19,6 +19,7 @@ SRCS = \
 	sort_medium.c \
 	sort_complex.c \
 	sort_adaptive.c \
+	sort_small.c \
 	bench.c \
 	utils.c
 

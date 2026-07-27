@@ -80,14 +80,22 @@ void	rr(t_ps *ps);
 void	rra(t_ps *ps);
 void	rrb(t_ps *ps);
 void	rrr(t_ps *ps);
+
 // utils.c
 int		is_sorted(t_stack *stack);
+void	indexing_stack(t_ps *ps);
+int		find_min_position(t_stack *stack, int size);
 
 // sort_*.c
 void	sort_simple(t_ps *ps);
 void	sort_medium(t_ps *ps);
 void	sort_complex(t_ps *ps);
 void	sort_adaptive(t_ps *ps);
+
+// sort_small.c
+void	sort_three(t_ps *ps);
+void	push_min_to_b(t_ps *ps, int min_pos, int size);
+void	sort_small(t_ps *ps, int size);
 
 // bench.c
 double  compute_disorder(t_stack *stack);
