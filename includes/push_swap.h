@@ -97,6 +97,7 @@ void	sort_three(t_ps *ps);
 void	push_min_to_b(t_ps *ps, int min_pos, int size);
 void	sort_small(t_ps *ps, int size);
 
-// bench.c
+// disorder.c + bench.c
 double  compute_disorder(t_stack *stack);
+void	print_bench(t_ps *ps);
 #endif
