@@ -19,6 +19,9 @@ static void	init_ps(t_ps *ps)
 	stack_init(&ps->b);
 	ps->strategy = ADAPTIVE;
 	ps->disorder = 0.0;
+	ps->total_ops = 0;
+	ps->bench_mode = 0;
+	ft_bzero(ps->op_counter, sizeof(ps->op_counter));
 }
 
 void	run_strategy(t_ps *ps)
