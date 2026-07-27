@@ -40,7 +40,7 @@ void	indexing_stack(t_ps *ps)
 	}
 }
 
-static int	find_min_position(t_stack *stack, int size)
+int	find_min_position(t_stack *stack, int size)
 {
 	t_node	*current;
 	int		min_index;
@@ -65,4 +65,3 @@ static int	find_min_position(t_stack *stack, int size)
 	}
 	return (min_pos);
 }
-

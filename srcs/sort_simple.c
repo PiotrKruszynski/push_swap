@@ -2,7 +2,7 @@
 
 //	turk algorithm -mod
 // selection sort
-static int	find_min_position(t_stack *stack)
+static int	find_min_position_simple(t_stack *stack)
 {
 	t_node	*curr;
 	int		min_value;
@@ -30,23 +30,29 @@ void	sort_simple(t_ps *ps)
 {
 	int	min_pos;
 	int i;
-
-	while (ps->a.size > 0)
+	if (ps->a.size <= 3)
+		sort_three(ps);
+	else if (ps->a.size <= 5)
+		sort_small(ps, ps->a.size);
+	else
 	{
-		min_pos = find_min_position(&ps->a);
-		if (min_pos <= ps->a.size / 2)
+		while (ps->a.size > 0)
 		{
-			while (min_pos-- > 0)
-				ra(ps);
+			min_pos = find_min_position_simple(&ps->a);
+			if (min_pos <= ps->a.size / 2)
+			{
+				while (min_pos-- > 0)
+					ra(ps);
+			}
+			else
+			{
+				i = ps->a.size - min_pos;
+				while (i-- > 0)
+					rra(ps);
+			}
+			pb(ps);
 		}
-		else
-		{
-			i = ps->a.size - min_pos;
-			while (i-- > 0)
-				rra(ps);
-		}
-		pb(ps);
+		while (ps->b.size > 0)
+			pa(ps);
 	}
-	while (ps->b.size > 0)
-		pa(ps);
 }
