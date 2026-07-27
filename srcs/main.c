@@ -41,7 +41,9 @@ int	main(int argc, char **argv)
 		return (0);
 	init_ps(&ps);
 	parse_args(&ps, argc, argv);
+	indexing_stack(&ps);
 	ps.disorder = compute_disorder(&ps.a);
+	// ft_putnbr_fd(compute_disorder(&ps.a), 1);
 	// debug_print(&ps.a);
 	if (!is_sorted(&ps.a))
 		run_strategy(&ps);

@@ -28,7 +28,6 @@ int	is_number(char *str)
 	return (1);
 }
 
-
 int	duplicate(t_stack *stack, int value)
 {
 	t_node	*current;
@@ -109,6 +108,8 @@ static void	add_num(t_ps *ps, char *str, char **split)
 {
 	long long	val;
 	t_node		*node;
+
+	val = 0;
 
 	if (!is_number(str) || !ft_atoi_overflow(str, &val)
 		|| duplicate(&ps->a, (int)val))
