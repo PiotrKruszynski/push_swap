@@ -60,20 +60,21 @@ int	ft_atoi_overflow(char *str, long long *result)
 			sign = -1;
 		i++;
 	}
+	if (ft_strlen(&str[i]) > 11)
+		return (0);
 	while (str[i] >= '0' && str[i] <= '9')
 	{
 		num = num * 10 + (str[i] - '0');
-		if ((sign == 1 && num > 2147483647)
-			|| (sign == -1 && (-num) < -2147483648)) // || (sign == -1 && num > 2147483648))
-			return (0);
 		i++;
 	}
-	*result = num * sign;
+	num *= sign;
+	if (num > INT_MAX || num < INT_MIN)
+		return (0);
+	*result = num;
 	return (1);
 }
-// dodac obsluge formatu "1 2 3"
 
-static void	set_flag(t_ps *ps, char *arg)
+static int	set_flag(t_ps *ps, char *arg)
 {
 	if (!ft_strncmp(arg, "--simple", 9))
 		ps->strategy = SIMPLE;
@@ -83,52 +84,101 @@ static void	set_flag(t_ps *ps, char *arg)
 		ps->strategy = COMPLEX;
 	else if (!ft_strncmp(arg, "--adaptive", 11))
 		ps->strategy = ADAPTIVE;
+	else if (!ft_strncmp(arg, "--bench", 8))
+		ps->bench_mode = 1;
 	else
+		return (0);// ps_error(ps);
+	return (1);
+}
+
+static void	free_split(char **split)
+{
+	int	i;
+
+	if (!split)
+		return ;
+	i = 0;
+	while (split[i])
+	{
+		free(split[i]);
+		i++;
+	}
+	free(split);
+}
+static void	add_num(t_ps *ps, char *str, char **split)
+{
+	long long	val;
+	t_node		*node;
+
+	if (!is_number(str) || !ft_atoi_overflow(str, &val)
+		|| duplicate(&ps->a, (int)val))
+	{
+		free_split(split);
 		ps_error(ps);
+	}
+	node = node_new((int)val);
+	if (!node)
+	{
+		free_split(split);
+		ps_error(ps);
+	}
+	stack_add_back(&ps->a, node);
 }
 
 void	parse_args(t_ps *ps, int argc, char **argv)
 {
-	int			i;
-	long long	value;
-	t_node		*node;
+	int		i;
+	int		j;
+	char	**split;
 
-	i = 1;
-	while (i < argc && argv[i][0] == '-' && argv[i][1] == '-')
+	i = 0;
+	while (++i < argc)
 	{
-		set_flag(ps, argv[i]);
-		i++;
-	}
-	while (i < argc)
-	{
-		if (!is_number(argv[i]))
-			ps_error(ps);
-		if (!ft_atoi_overflow(argv[i], &value))
-			ps_error(ps);
-		if (duplicate(&ps->a, (int)value))
-			ps_error(ps);
-		node = node_new((int)value);
-		if (!node)
-			ps_error(ps);
-		stack_add_back(&ps->a, node);
-		i++;
+		if (argv[i][0] == '-' && argv[i][1] == '-')
+		{
+			if (!set_flag(ps, argv[i]))
+				ps_error(ps);
+		}
+		else
+		{
+			split = ft_split(argv[i], ' ');
+			if (!split)
+				ps_error(ps);
+			j = -1;
+			while (split[++j])
+				add_num(ps, split[j], split);
+			free_split(split);
+		}
 	}
 }
 
+
+
 // void	parse_args(t_ps *ps, int argc, char **argv)
 // {
-// 	int	i;
-// 	t_node	*node;
+// 	int			i;
+// 	long long	value;
+// 	t_node		*node;
 
-// 	ps->a = NULL;
-// 	ps->b = NULL;
 // 	i = 1;
+// 	while (i < argc && argv[i][0] == '-' && argv[i][1] == '-')
+// 	{
+// 		set_flag(ps, argv[i]);
+// 		i++;
+// 	}
 // 	while (i < argc)
 // 	{
-// 		node = node_new(ft_atoi_overflow(argv[i]));
+// 		if (!is_number(argv[i]))
+// 			ps_error(ps);
+// 		if (!ft_atoi_overflow(argv[i], &value))
+// 			ps_error(ps);
+// 		if (duplicate(&ps->a, (int)value))
+// 			ps_error(ps);
+// 		node = node_new((int)value);
 // 		if (!node)
 // 			ps_error(ps);
-// 		stackadd_back(&ps->a, node);
+// 		stack_add_back(&ps->a, node);
 // 		i++;
 // 	}
 // }
+

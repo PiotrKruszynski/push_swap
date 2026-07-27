@@ -7,28 +7,26 @@ static void	swap(t_stack *stack)
 
 	if (!stack || stack->size < 2)
 		return ;
-	first = stack->top;
-	second = first->next;
-	first->next = second->next;
-	if (second->next)
-		second->next->prev = first;
-	else
-		stack->bottom = first;
-	second->next = first;
-	second->prev = NULL;
-	first->prev = second;
-	stack->top = second;
+	first = stack_pop(stack);
+	second = stack_pop(stack);
+	stack_add_front(stack, first);
+	stack_add_front(stack, second);
 }
+
 
 void	sa(t_ps *ps)
 {
 	swap(&(ps->a));
+	ps->total_ops++;
+	ps->op_counter[O_SA]++;
 	write(1, "sa\n", 3);
 }
 
 void	sb(t_ps *ps)
 {
 	swap(&(ps->b));
+	ps->total_ops++;
+	ps->op_counter[O_SB]++;
 	write(1, "sb\n", 3);
 }
 
@@ -36,5 +34,7 @@ void	ss(t_ps *ps)
 {
 	swap(&(ps->a));
 	swap(&(ps->b));
+	ps->total_ops++;
+	ps->op_counter[O_SS]++;
 	write(1, "ss\n", 3);
 }
