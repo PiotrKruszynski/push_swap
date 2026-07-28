@@ -30,29 +30,30 @@ void	sort_simple(t_ps *ps)
 {
 	int	min_pos;
 	int i;
-	if (ps->a.size <= 3)
-		sort_three(ps);
-	else if (ps->a.size <= 5)
-		sort_small(ps, ps->a.size);
-	else
+
+	if (ps->a.size <= 5)
 	{
-		while (ps->a.size > 0)
-		{
-			min_pos = find_min_position_simple(&ps->a);
-			if (min_pos <= ps->a.size / 2)
-			{
-				while (min_pos-- > 0)
-					ra(ps);
-			}
-			else
-			{
-				i = ps->a.size - min_pos;
-				while (i-- > 0)
-					rra(ps);
-			}
-			pb(ps);
-		}
-		while (ps->b.size > 0)
-			pa(ps);
+		sort_small(ps, ps->a.size);
+		return ;
 	}
+	while (ps->a.size > 0)
+	{
+		min_pos = find_min_position_simple(&ps->a);
+		if (min_pos <= ps->a.size / 2)
+		{
+			while (min_pos-- > 0)
+				ra(ps);
+		}
+		else
+		{
+			i = ps->a.size - min_pos;
+			while (i-- > 0)
+				rra(ps);
+		}
+		if (is_sorted(&ps->a))
+			break ;
+		pb(ps);
+	}
+	while (ps->b.size > 0)
+		pa(ps);
 }
