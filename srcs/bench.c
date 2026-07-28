@@ -1,17 +1,17 @@
 #include "push_swap.h"
 
-static void print_disorder(double disorder)
+static void	print_disorder(double disorder)
 {
-    int    scaled;
+	int	scaled;
 
-    scaled = (int)(disorder * 10000.0);
-    ft_putstr_fd("[bench] disorder:  ", 2);
-    ft_putnbr_fd((scaled / 100), 2);
-    ft_putchar_fd('.', 2);
-    if ((scaled % 100) < 10)
-        ft_putchar_fd('0', 2);
-    ft_putnbr_fd((scaled % 100), 2);
-    ft_putchar_fd('%', 2);
+	scaled = (int)(disorder * 10000.0);
+	ft_putstr_fd("[bench] disorder:  ", 2);
+	ft_putnbr_fd((scaled / 100), 2);
+	ft_putchar_fd('.', 2);
+	if ((scaled % 100) < 10)
+		ft_putchar_fd('0', 2);
+	ft_putnbr_fd((scaled % 100), 2);
+	ft_putchar_fd('%', 2);
 	ft_putchar_fd('\n', 2);
 }
 
