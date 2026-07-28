@@ -53,6 +53,7 @@ int	main(int argc, char **argv)
 	// debug_print(&ps.a);
 	// ft_putnbr_fd(compute_disorder(&ps.a), 1);
 	// write(1, "\n", 1);
+	print_bench(&ps);
 	stack_free(&ps.a);
 	stack_free(&ps.b);
 	return (0);
