@@ -73,7 +73,7 @@ int	ft_atoi_overflow(char *str, long long *result)
 	return (1);
 }
 
-static int	set_flag(t_ps *ps, char *arg)
+static void	set_flag(t_ps *ps, char *arg)
 {
 	if (!ft_strncmp(arg, "--simple", 9))
 		ps->strategy = SIMPLE;
@@ -86,8 +86,7 @@ static int	set_flag(t_ps *ps, char *arg)
 	else if (!ft_strncmp(arg, "--bench", 8))
 		ps->bench_mode = 1;
 	else
-		return (0);
-	return (1);
+		ps_error(ps);
 }
 
 static void	free_split(char **split)
@@ -137,9 +136,11 @@ void	parse_args(t_ps *ps, int argc, char **argv)
 	{
 		if (argv[i][0] == '-' && argv[i][1] == '-')
 		{
-			if (!set_flag(ps, argv[i]))
-				ps_error(ps);
+			set_flag(ps, argv[i]);
+			i++;
 		}
+		if (ps->strategy == NO_STRATEGY)
+			ps->strategy = ADAPTIVE;
 		else
 		{
 			split = ft_split(argv[i], ' ');
