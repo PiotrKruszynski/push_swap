@@ -17,7 +17,7 @@ static void	init_ps(t_ps *ps)
 {
 	stack_init(&ps->a);
 	stack_init(&ps->b);
-	ps->strategy = ADAPTIVE;
+	ps->strategy = NO_STRATEGY;
 	ps->disorder = 0.0;
 	ps->total_ops = 0;
 	ps->bench_mode = 0;
