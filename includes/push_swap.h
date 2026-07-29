@@ -16,7 +16,7 @@ typedef enum e_strategy
 	NO_STRATEGY
 }	t_strategy;
 
-typedef enum e_op_count //dla liczenia kazdej operacji
+typedef enum e_op_count
 {
 	O_SA, O_SB, O_SS,
 	O_PA, O_PB,
@@ -102,4 +102,9 @@ void	sort_small(t_ps *ps, int size);
 // disorder.c + bench.c
 double  compute_disorder(t_stack *stack);
 void	print_bench(t_ps *ps);
+
+//flags.c
+void	set_strategy(t_ps *ps, t_strategy s);
+void	set_flag(t_ps *ps, char *arg);
+
 #endif

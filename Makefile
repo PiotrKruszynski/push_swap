@@ -21,6 +21,8 @@ SRCS = \
 	sort_adaptive.c \
 	sort_small.c \
 	bench.c \
+	flags.c \
+	validate.c \
 	utils.c
 
 OBJS = $(addprefix $(SRC_DIR)/, $(SRCS:.c=.o))
