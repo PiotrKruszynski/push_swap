@@ -5,13 +5,15 @@
 # include <stdlib.h>
 # include "libft.h"
 # include <limits.h>
+# include <stdio.h>
 
 typedef enum e_strategy
 {
 	SIMPLE,
 	MEDIUM,
 	COMPLEX,
-	ADAPTIVE
+	ADAPTIVE,
+	NO_STRATEGY
 }	t_strategy;
 
 typedef enum e_op_count //dla liczenia kazdej operacji
