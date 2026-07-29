@@ -86,7 +86,7 @@ static int	set_flag(t_ps *ps, char *arg)
 	else if (!ft_strncmp(arg, "--bench", 8))
 		ps->bench_mode = 1;
 	else
-		return (0);// ps_error(ps);
+		return (0);
 	return (1);
 }
 
@@ -145,6 +145,11 @@ void	parse_args(t_ps *ps, int argc, char **argv)
 			split = ft_split(argv[i], ' ');
 			if (!split)
 				ps_error(ps);
+			if (!split[0])
+			{
+				free_split(split);
+				ps_error(ps);
+			}
 			j = -1;
 			while (split[++j])
 				add_num(ps, split[j], split);
