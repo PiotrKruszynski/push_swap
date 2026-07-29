@@ -1,7 +1,5 @@
 #include "push_swap.h"
 
-#include <unistd.h>
-
 static void	push(t_stack *dest, t_stack *src)
 {
 	t_node	*to_move;
