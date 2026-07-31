@@ -141,9 +141,7 @@ static void	divide_chunks(t_ps *ps)
 
 void	sort_medium(t_ps *ps)
 {
-	if (ps->a.size <= 3)
-		sort_three(ps);
-	else if (ps->a.size <= 5)
+	if (ps->a.size <= 5)
 		sort_small(ps, ps->a.size);
 	else
 		divide_chunks(ps);
