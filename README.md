@@ -93,7 +93,8 @@ push_swap/
     ├── parse.c           tokenise args, build stack a
     ├── flags.c           flags, mutual exclusion
     ├── validate.c        syntax, int range, duplicates, error exit
-    ├── stack.c           node/list primitives
+    ├── stack_v1.c           node/list primitives
+    ├── stack_v2.c           node/list primitives
     ├── ops_swap.c        sa, sb, ss
     ├── ops_push.c        pa, pb
     ├── ops_rotate.c      ra, rb, rr
@@ -101,7 +102,8 @@ push_swap/
     ├── disorder.c        compute_disorder
     ├── sort_small.c      n ≤ 3, hard-coded
     ├── sort_simple.c     selection      O(n²)
-    ├── sort_medium.c     chunks         O(n√n)
+    ├── sort_medium_v1.c     chunks         O(n√n)
+    ├── sort_medium_v2.c     chunks         O(n√n)
     ├── sort_complex.c    binary radix   O(n log n)
     ├── sort_adaptive.c   router
     ├── bench.c           --bench
@@ -371,18 +373,6 @@ threshold ordering, in one table.
  
 ## Testing
  
-```bash
-chmod +x test_push_swap.sh
-./test_push_swap.sh              # everything except valgrind
-./test_push_swap.sh all          # valgrind too
-./test_push_swap.sh complexity   # just the tables above
-```
- 
-Covers error handling, output discipline, checker validation across all four strategies
-and five sizes, benchmark format, counter consistency, the subject's thresholds and the
-complexity analysis.
- 
-Reproduce the headline numbers by hand:
  
 ```bash
 shuf -i 0-9999 -n 100 > args.txt ; ./push_swap $(cat args.txt) | wc -l
