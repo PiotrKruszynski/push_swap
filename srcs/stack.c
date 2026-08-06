@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   stack.c                                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: kwlodars <kwlodars@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/08/06 11:50:32 by kwlodars          #+#    #+#             */
+/*   Updated: 2026/08/06 11:54:55 by kwlodars         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
 
 t_node	*node_new(int value)
@@ -20,7 +32,7 @@ void	stack_init(t_stack *stack)
 	stack->bottom = NULL;
 	stack->size = 0;
 }
-//dla dodawania na poczatek - pa+pb
+
 void	stack_add_front(t_stack *stack, t_node *new_node)
 {
 	if (!stack || !new_node)
@@ -46,7 +58,6 @@ void	stack_add_back(t_stack *stack, t_node *new_node)
 {
 	if (!stack || !new_node)
 		return ;
-	//bezpieczne zakończenie stack
 	new_node->next = NULL;
 	if (stack->size == 0)
 	{
@@ -61,7 +72,7 @@ void	stack_add_back(t_stack *stack, t_node *new_node)
 	}
 	stack->size++;
 }
-// przekazywanie pomiedzy s.A i s.B
+
 t_node	*stack_pop(t_stack *stack)
 {
 	t_node	*popped_node;

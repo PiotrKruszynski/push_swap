@@ -6,7 +6,7 @@
 /*   By: kwlodars <kwlodars@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/06 10:46:26 by kwlodars          #+#    #+#             */
-/*   Updated: 2026/08/06 10:48:30 by kwlodars         ###   ########.fr       */
+/*   Updated: 2026/08/06 11:48:15 by kwlodars         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,7 +79,8 @@ void	sort_small(t_ps *ps, int size)
 	pushed = 0;
 	while (size - pushed > 3)
 	{
-		push_min_to_b(ps, find_min_position(&(ps->a), size - pushed), size - pushed);
+		push_min_to_b(ps,
+			find_min_position(&(ps->a), size - pushed), size - pushed);
 		pushed++;
 	}
 	sort_three(ps);

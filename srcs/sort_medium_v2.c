@@ -6,7 +6,7 @@
 /*   By: kwlodars <kwlodars@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/06 10:46:20 by kwlodars          #+#    #+#             */
-/*   Updated: 2026/08/06 11:06:34 by kwlodars         ###   ########.fr       */
+/*   Updated: 2026/08/06 11:49:48 by kwlodars         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,7 @@ void	rotate_b_to_top(t_ps *ps, int pos)
 		}
 	}
 }
+
 int	find_pos_b(t_stack *stack, int target_index)
 {
 	t_node	*current;

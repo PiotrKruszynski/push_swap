@@ -1,4 +1,16 @@
-# ifndef PUSH_SWAP_H
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   push_swap.h                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: kwlodars <kwlodars@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/08/06 11:54:30 by kwlodars          #+#    #+#             */
+/*   Updated: 2026/08/06 11:54:34 by kwlodars         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
 
 # include <unistd.h>
@@ -18,10 +30,17 @@ typedef enum e_strategy
 
 typedef enum e_op_count
 {
-	O_SA, O_SB, O_SS,
-	O_PA, O_PB,
-	O_RA, O_RB, O_RR,
-	O_RRA, O_RRB, O_RRR,
+	O_SA,
+	O_SB,
+	O_SS,
+	O_PA,
+	O_PB,
+	O_RA,
+	O_RB,
+	O_RR,
+	O_RRA,
+	O_RRB,
+	O_RRR,
 	OP_COUNT
 }	t_op_count;
 
@@ -100,7 +119,7 @@ void	push_min_to_b(t_ps *ps, int min_pos, int size);
 void	sort_small(t_ps *ps, int size);
 
 // disorder.c + bench.c
-double  compute_disorder(t_stack *stack);
+double	compute_disorder(t_stack *stack);
 void	print_bench(t_ps *ps);
 
 //flags.c

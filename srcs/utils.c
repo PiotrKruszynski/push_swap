@@ -3,19 +3,18 @@
 /*                                                        :::      ::::::::   */
 /*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pkruszyn <pkruszyn@student.42.fr>          +#+  +:+       +#+        */
+/*   By: kwlodars <kwlodars@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/06 10:45:46 by kwlodars          #+#    #+#             */
-/*   Updated: 2026/08/06 11:14:09 by pkruszyn         ###   ########.fr       */
+/*   Updated: 2026/08/06 11:54:14 by kwlodars         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-/* dodatkowe funkcje */
 int	is_sorted(t_stack *stack)
 {
-	t_node  *curr;
+	t_node	*curr;
 
 	if (!stack || stack->size < 2)
 		return (1);

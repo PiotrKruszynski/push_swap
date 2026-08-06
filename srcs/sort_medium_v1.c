@@ -6,7 +6,7 @@
 /*   By: kwlodars <kwlodars@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/06 10:46:20 by kwlodars          #+#    #+#             */
-/*   Updated: 2026/08/06 11:08:18 by kwlodars         ###   ########.fr       */
+/*   Updated: 2026/08/06 11:53:18 by kwlodars         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ void	push_back_to_a(t_ps *ps)
 void	push_to_b(t_ps *ps, int min_chunk, int max_chunk)
 {
 	int	size_to_push;
-	
+
 	size_to_push = max_chunk - min_chunk + 1;
 	while (size_to_push > 0 && ps->a.size > 0)
 	{
