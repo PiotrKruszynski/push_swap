@@ -6,7 +6,7 @@
 /*   By: pkruszyn <pkruszyn@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/06 10:46:26 by pkruszyn          #+#    #+#             */
-/*   Updated: 2026/08/06 10:46:29 by pkruszyn         ###   ########.fr       */
+/*   Updated: 2026/08/06 11:09:23 by pkruszyn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,6 @@ static int	max_bits(int size)
 
 	max = size -1;
 	bits = 0;
-
 	while ((max >> bits) != 0)
 		bits++;
 	return (bits);
@@ -48,7 +47,7 @@ void	sort_complex(t_ps *ps)
 {
 	int	bit;
 	int	bits;
- 
+
 	if (!ps || ps->a.size <= 1)
 		return ;
 	if (ps->a.size <= 5)

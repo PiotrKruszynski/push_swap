@@ -80,25 +80,6 @@ t_node	*stack_pop(t_stack *stack)
 	return (popped_node);
 }
 
-// t_node	*stack_pop_back(t_stack *stack)
-// {
-// 	t_node	*popped_node;
-
-// 	if (!stack || stack->size == 0)
-// 		return (NULL);
-// 	popped_node = stack->bottom;
-// 	stack->bottom = stack->bottom->prev;
-// 	if (stack->bottom)
-// 		stack->bottom->next = NULL;
-// 	else
-// 		stack->top = NULL;
-// 	popped_node->next = NULL;
-// 	popped_node->prev = NULL;
-// 	stack->size--;
-// 	return (popped_node);
-// }
-
-
 void	stack_free(t_stack *stack)
 {
 	t_node	*curr;
@@ -117,10 +98,3 @@ void	stack_free(t_stack *stack)
 	stack->bottom = NULL;
 	stack->size = 0;
 }
-// --------------- w strukturze stack juz jest zmienna 'size'
-// int	stack_size(t_stack *stack)
-// {
-// 	if (!stack)
-// 		return (0);
-// 	return (stack->size);
-// }

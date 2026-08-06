@@ -1,15 +1,3 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   ops_swap.c                                         :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: kwlodars <kwlodars@student.42.fr>          +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/08/06 10:45:26 by kwlodars          #+#    #+#             */
-/*   Updated: 2026/08/06 10:47:39 by kwlodars         ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
-
 #include "push_swap.h"
 
 static void	swap(t_stack *stack)
@@ -41,9 +29,7 @@ void	sb(t_ps *ps)
 	write(1, "sb\n", 3);
 }
 
-void		// debug_print(&ps.a);
-	// ft_putnbr_fd(compute_disorder(&ps.a), 1);
-	// write(1, "\n", 1);ss(t_ps *ps)
+void	ss(t_ps *ps)
 {
 	swap(&(ps->a));
 	swap(&(ps->b));

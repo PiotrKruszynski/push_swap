@@ -1,6 +1,5 @@
 #include "push_swap.h"
 
-
 void	ps_error(t_ps *ps)
 {
 	stack_free(&ps->a);

@@ -3,30 +3,30 @@
 /*                                                        :::      ::::::::   */
 /*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kwlodars <kwlodars@student.42.fr>          +#+  +:+       +#+        */
+/*   By: pkruszyn <pkruszyn@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/06 10:45:46 by kwlodars          #+#    #+#             */
-/*   Updated: 2026/08/06 10:49:07 by kwlodars         ###   ########.fr       */
+/*   Updated: 2026/08/06 11:14:09 by pkruszyn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
 /* dodatkowe funkcje */
-int is_sorted(t_stack *stack)
+int	is_sorted(t_stack *stack)
 {
-    t_node  *curr;
+	t_node  *curr;
 
-    if (!stack || stack->size < 2)
-        return (1);
-    curr = stack->top;
-    while (curr->next)
-    {
-        if (curr->value > curr->next->value)
-            return (0);
-        curr = curr->next;
-    }
-    return (1);
+	if (!stack || stack->size < 2)
+		return (1);
+	curr = stack->top;
+	while (curr->next)
+	{
+		if (curr->value > curr->next->value)
+			return (0);
+		curr = curr->next;
+	}
+	return (1);
 }
 
 void	indexing_stack(t_ps *ps)

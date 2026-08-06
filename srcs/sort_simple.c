@@ -6,7 +6,7 @@
 /*   By: pkruszyn <pkruszyn@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/06 10:45:46 by pkruszyn          #+#    #+#             */
-/*   Updated: 2026/08/06 10:46:12 by pkruszyn         ###   ########.fr       */
+/*   Updated: 2026/08/06 11:10:46 by pkruszyn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ static int	find_min_position_simple(t_stack *stack)
 void	sort_simple(t_ps *ps)
 {
 	int	min_pos;
-	int i;
+	int	i;
 
 	if (ps->a.size <= 5)
 	{
