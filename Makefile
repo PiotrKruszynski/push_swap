@@ -9,7 +9,8 @@ SRC_DIR     = srcs
 SRCS = \
 	main.c \
 	parse.c \
-	stack.c \
+	stack_v1.c \
+	stack_v2.c \
 	ops_swap.c \
 	ops_push.c \
 	ops_rotate.c \
