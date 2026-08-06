@@ -6,7 +6,7 @@
 /*   By: pkruszyn <pkruszyn@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/06 10:45:46 by pkruszyn          #+#    #+#             */
-/*   Updated: 2026/08/06 11:10:46 by pkruszyn         ###   ########.fr       */
+/*   Updated: 2026/08/06 11:43:29 by pkruszyn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,10 +38,26 @@ static int	find_min_position_simple(t_stack *stack)
 	return (min_pos);
 }
 
+static void	rotate_min_to_top(t_ps *ps, int min_pos)
+{
+	int	i;
+
+	if (min_pos <= ps->a.size / 2)
+	{
+		while (min_pos-- > 0)
+			ra(ps);
+	}
+	else
+	{
+		i = ps->a.size - min_pos;
+		while (i-- > 0)
+			rra(ps);
+	}
+}
+
 void	sort_simple(t_ps *ps)
 {
 	int	min_pos;
-	int	i;
 
 	if (ps->a.size <= 5)
 	{
@@ -51,17 +67,7 @@ void	sort_simple(t_ps *ps)
 	while (ps->a.size > 0)
 	{
 		min_pos = find_min_position_simple(&ps->a);
-		if (min_pos <= ps->a.size / 2)
-		{
-			while (min_pos-- > 0)
-				ra(ps);
-		}
-		else
-		{
-			i = ps->a.size - min_pos;
-			while (i-- > 0)
-				rra(ps);
-		}
+		rotate_min_to_top(ps, min_pos);
 		if (is_sorted(&ps->a))
 			break ;
 		pb(ps);
