@@ -1,5 +1,17 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   sort_small.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: kwlodars <kwlodars@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/08/06 10:46:26 by kwlodars          #+#    #+#             */
+/*   Updated: 2026/08/06 10:48:30 by kwlodars         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
-// dla malych liczb
+
 void	sort_three(t_ps *ps)
 {
 	int	first;
@@ -28,7 +40,6 @@ void	sort_three(t_ps *ps)
 	else if (first < second && second > third && first > third)
 		rra(ps);
 }
-
 
 void	push_min_to_b(t_ps *ps, int min_pos, int size)
 {

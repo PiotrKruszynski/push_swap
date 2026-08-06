@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ops_swap.c                                         :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: kwlodars <kwlodars@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/08/06 10:45:26 by kwlodars          #+#    #+#             */
+/*   Updated: 2026/08/06 10:47:39 by kwlodars         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
 
 static void	swap(t_stack *stack)
@@ -12,7 +24,6 @@ static void	swap(t_stack *stack)
 	stack_add_front(stack, first);
 	stack_add_front(stack, second);
 }
-
 
 void	sa(t_ps *ps)
 {

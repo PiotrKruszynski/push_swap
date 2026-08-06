@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   sort_medium.c                                      :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: kwlodars <kwlodars@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/08/06 10:46:20 by kwlodars          #+#    #+#             */
+/*   Updated: 2026/08/06 10:48:25 by kwlodars         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
 
 static int	get_chunk_size(int size)
@@ -137,7 +149,6 @@ static void	divide_chunks(t_ps *ps)
 	}
 	push_back_to_a(ps);
 }
-
 
 void	sort_medium(t_ps *ps)
 {
