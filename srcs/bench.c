@@ -27,7 +27,7 @@ static void	print_strategy(t_ps *ps)
 	else if (ps->disorder < 0.2)
 		ft_putstr_fd("Adaptive / O(n²)\n", 2);
 	else if (ps->disorder < 0.5)
-		ft_putstr_fd("Adaptive / O(n√n))\n", 2);
+		ft_putstr_fd("Adaptive / O(n√n)\n", 2);
 	else
 		ft_putstr_fd("Adaptive / O(n log n)\n", 2);
 }
