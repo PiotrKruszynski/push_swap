@@ -445,9 +445,9 @@ test_complexity()
 	echo "  Read down each ratio column: the one that stays flat is the true class."
 	echo "  Growth is ops(2n)/ops(n) — expect ~4.0 for n^2, ~2.83 for n^1.5, ~2.1 for n*log n."
 
-	analyse simple   "O(n^2)"      25 50 100 200 400
-	analyse medium   "O(n*sqrt n)" 25 50 100 200 400 800
-	analyse complex  "O(n*log n)"  25 50 100 200 400 800
+	analyse simple   "O(n^2)"      25 50 100 200 400 500 1000
+	analyse medium   "O(n*sqrt n)" 25 50 100 200 400 500 1000
+	analyse complex  "O(n*log n)"  25 50 100 200 400 500 1000
 
 	hdr "ADAPTIVE — REGIME SELECTION"
 	echo "  Disorder decides the method; the reported class must follow the thresholds."
