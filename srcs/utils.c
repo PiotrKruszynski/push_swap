@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   utils.c                                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: kwlodars <kwlodars@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/08/06 10:45:46 by kwlodars          #+#    #+#             */
+/*   Updated: 2026/08/06 10:49:07 by kwlodars         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
 
 /* dodatkowe funkcje */
@@ -16,6 +28,7 @@ int is_sorted(t_stack *stack)
     }
     return (1);
 }
+
 void	indexing_stack(t_ps *ps)
 {
 	t_node	*current;

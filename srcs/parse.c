@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   parse.c                                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: kwlodars <kwlodars@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/08/06 10:45:39 by kwlodars          #+#    #+#             */
+/*   Updated: 2026/08/06 10:47:59 by kwlodars         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
 
 static void	free_split(char **split)
@@ -14,6 +26,7 @@ static void	free_split(char **split)
 	}
 	free(split);
 }
+
 static void	add_num(t_ps *ps, char *str, char **split)
 {
 	long long	val;
@@ -35,6 +48,7 @@ static void	add_num(t_ps *ps, char *str, char **split)
 	}
 	stack_add_back(&ps->a, node);
 }
+
 static void	add_arg(t_ps *ps, char *arg)
 {
 	char	**split;
