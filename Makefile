@@ -16,9 +16,9 @@ SRCS = \
 	ops_rrotate.c \
 	disorder.c \
 	sort_simple.c \
-	sort_medium.c \
-	sort_complex_v2.c \
-	sort_complex_v1.c \
+	sort_medium_v2.c \
+	sort_medium_v1.c \
+	sort_complex.c \
 	sort_adaptive.c \
 	sort_small.c \
 	bench.c \
