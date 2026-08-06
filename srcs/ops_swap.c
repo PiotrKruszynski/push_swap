@@ -30,7 +30,9 @@ void	sb(t_ps *ps)
 	write(1, "sb\n", 3);
 }
 
-void	ss(t_ps *ps)
+void		// debug_print(&ps.a);
+	// ft_putnbr_fd(compute_disorder(&ps.a), 1);
+	// write(1, "\n", 1);ss(t_ps *ps)
 {
 	swap(&(ps->a));
 	swap(&(ps->b));

@@ -1,17 +1,4 @@
 #include "push_swap.h"
-/*
-static void	debug_print(t_stack *stack)
-{
-	t_node	*curr;
-
-	curr = stack->top;
-	while (curr != NULL)
-	{
-		ft_putnbr_fd(curr->value, 1);
-		write(1, "\n", 1);
-		curr = curr->next;
-	}
-} */
 
 static void	init_ps(t_ps *ps)
 {
@@ -46,13 +33,8 @@ int	main(int argc, char **argv)
 	parse_args(&ps, argc, argv);
 	indexing_stack(&ps);
 	ps.disorder = compute_disorder(&ps.a);
-	// ft_putnbr_fd(compute_disorder(&ps.a), 1);
-	// debug_print(&ps.a);
 	if (!is_sorted(&ps.a))
 		run_strategy(&ps);
-	// debug_print(&ps.a);
-	// ft_putnbr_fd(compute_disorder(&ps.a), 1);
-	// write(1, "\n", 1);
 	print_bench(&ps);
 	stack_free(&ps.a);
 	stack_free(&ps.b);
