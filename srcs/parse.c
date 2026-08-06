@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parse.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kwlodars <kwlodars@student.42.fr>          +#+  +:+       +#+        */
+/*   By: pkruszyn <pkruszyn@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/06 10:45:39 by kwlodars          #+#    #+#             */
-/*   Updated: 2026/08/06 10:47:59 by kwlodars         ###   ########.fr       */
+/*   Updated: 2026/08/06 11:08:43 by pkruszyn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,6 @@ static void	add_num(t_ps *ps, char *str, char **split)
 	t_node		*node;
 
 	val = 0;
-
 	if (!is_number(str) || !ft_atoi_overflow(str, &val)
 		|| duplicate(&ps->a, (int)val))
 	{

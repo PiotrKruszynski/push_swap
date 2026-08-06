@@ -6,13 +6,13 @@
 /*   By: pkruszyn <pkruszyn@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/06 10:46:47 by pkruszyn          #+#    #+#             */
-/*   Updated: 2026/08/06 10:46:49 by pkruszyn         ###   ########.fr       */
+/*   Updated: 2026/08/06 10:52:41 by pkruszyn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-double  compute_disorder(t_stack *stack)
+double	compute_disorder(t_stack *stack)
 {
 	t_node	*i;
 	t_node	*j;

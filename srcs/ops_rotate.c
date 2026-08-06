@@ -6,7 +6,7 @@
 /*   By: pkruszyn <pkruszyn@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/06 10:45:20 by pkruszyn          #+#    #+#             */
-/*   Updated: 2026/08/06 10:45:25 by pkruszyn         ###   ########.fr       */
+/*   Updated: 2026/08/06 11:05:40 by pkruszyn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,16 +26,6 @@ static void rotate(t_stack *stack)
     stack->bottom->next = first;
     stack->bottom = first;
 }
-// static void	rotate(t_stack *stack)
-// {
-// 	t_node	*first;
-
-// 	if (!stack || stack->size < 2)
-// 		return ;
-// 	first = stack_pop(stack);
-// 	if (first)
-// 		stack_add_back(stack, first);
-// }
 
 void	ra(t_ps *ps)
 {
