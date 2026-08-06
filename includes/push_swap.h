@@ -107,4 +107,14 @@ void	print_bench(t_ps *ps);
 void	set_strategy(t_ps *ps, t_strategy s);
 void	set_flag(t_ps *ps, char *arg);
 
+//sort_medium_v1_v2
+int		get_cost(int pos, int size);
+void	rotate_b_to_top(t_ps *ps, int pos);
+int		find_pos_b(t_stack *stack, int target_index);
+void	cheap_push_back(t_ps *ps, int pos_max, int pos_next, int *target_max);
+int		get_chunk_size(int size);
+void	push_back_to_a(t_ps *ps);
+void	push_to_b(t_ps *ps, int min_chunk, int max_chunk);
+void	divide_chunks(t_ps *ps);
+void	sort_medium(t_ps *ps);
 #endif
